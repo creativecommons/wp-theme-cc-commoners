@@ -1,44 +1,38 @@
 {
   "name": "wp-theme-cc-commoners",
-  "version": "1.0.0",
-  "description": "Frontend environment using foundation for sites",
-  "main": "gulpfile.js",
-  "scripts": {
-    "start": "gulp",
-    "build": "gulp sass"
-  },
-  "author": "ZURB <foundation@zurb.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zurb/foundation-sites/issues",
-    "email": "foundation@zurb.com"
-  },
-  "dependencies": {
-    "foundation-sites": "^6.5.3",
-    "jquery": "^3.4.1",
-    "motion-ui": "~2.0.0",
-    "what-input": "^5.2.3"
-  },
+  "version": "2020.11.1",
+  "description": "Commoners WordPress Child theme",
+  "main": "index.js",
+  "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
-    "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-cssmin": "^0.2.0",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-load-plugins": "^1.6.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
-    "gulp-util": "^3.0.8",
-    "slick-carousel": "^1.8.1",
-    "swipebox": "^1.4.6"
+    "@creativecommons/vocabulary": "^2020.10.1",
+    "bulma": "^0.9.1",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.4",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "watch": "webpack --mode production --watch --progress"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zurb/foundation-sites-template.git"
+    "url": "git+https://github.com/creativecommons/wp-theme-cc-commoners.git"
   },
-  "private": true
+  "keywords": [
+    "WordPress",
+    "theme",
+    "PHP"
+  ],
+  "author": "Creative Commons",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/creativecommons/wp-theme-cc-commoners/issues"
+  },
+  "homepage": "https://github.com/creativecommons/wp-theme-cc-commoners#readme"
 }
