@@ -43,6 +43,12 @@ class front {
 }
 
 class Commoners {
+    public static function set_ccgn_logo() {
+        return 'products/global_network.svg#globalnetwork';
+    }
+    public static function set_ccgn_logo_image_size() {
+        return '278 40';
+    }
     public static function get_chapters_by_status() {
         $status='active';
         $params = array(
@@ -174,3 +180,5 @@ class Commoners {
 //add_action("wp_ajax_event-chapters__get_countries", Commoners::get_chapters_by_status());
 add_action('wp_ajax_event-get-chapters',array('Commoners','get_chapters_by_status'));
 add_action('wp_ajax_nopriv_event-get-chapters', array('Commoners', 'get_chapters_by_status'));
+add_filter('cc_theme_base_set_default_size_logo', array( 'Commoners', 'set_ccgn_logo_image_size' ) );
+add_filter('cc_theme_base_set_default_logo', array( 'Commoners', 'set_ccgn_logo' ));

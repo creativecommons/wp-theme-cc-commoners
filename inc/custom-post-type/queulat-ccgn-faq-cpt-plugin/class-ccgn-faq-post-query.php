@@ -2,12 +2,12 @@
 
 use Queulat\Post_Query;
 
-class Ccgnfeaturedmember_Post_Query extends Post_Query {
+class Ccgn_Faq_Post_Query extends Post_Query {
 	public function get_post_type() : string {
-		return 'ccgnfeaturedmember';
+		return 'ccgn-faq';
 	}
 	public function get_decorator() : string {
-		return Ccgnfeaturedmember_Post_Object::class;
+		return Ccgn_Faq_Post_Object::class;
 	}
 	public function get_default_args() : array {
 		return [];

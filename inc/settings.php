@@ -3,14 +3,14 @@ use Queulat\Forms\Element\Div;
 use Queulat\Forms\Element\Form;
 use Queulat\Forms\Node_Factory;
 use Queulat\Forms\Element\WP_Nonce;
-use Queulat\Forms\Element\WP_Media;
+use Queulat\Forms\Element\WP_Image;
 use Queulat\Forms\Element\Input_Url;
 use Queulat\Forms\Element\WP_Editor;
 use Queulat\Forms\Element\Input_Text;
 use Queulat\Forms\Element\Input;
 use Queulat\Forms\Element\UI_Select2;
 
-class ThemeSettings
+class CCGNThemeSettings
 {
     private $flash;
     public $settings;
@@ -18,7 +18,7 @@ class ThemeSettings
     {
         $this->init();
         $this->flash = array('updated' => __('Settings saved', 'ccgn'), 'error' => __('There was a problem saving your settings', 'ccgn'));
-        $this->settings = get_option('site_theme_settings');
+        $this->settings = get_option('ccgn_site_theme_settings');
     }
     public function init()
     {
@@ -39,7 +39,7 @@ class ThemeSettings
                 echo '<p>' . $this->flash[$_GET['msg']] . '</p>';
             echo '</div>';
         endif;
-        $data = get_option('site_theme_settings');
+        $data = get_option('ccgn_site_theme_settings');
         $form = Node_Factory::make(
                 Form::class,
                 [
@@ -49,6 +49,161 @@ class ThemeSettings
                         'method' => 'POST'
                     ],
                     'children' => [
+                        Node_Factory::make(
+                             Div::class,
+                             [
+                                 'text_content' => '<h3>Homepage settings</h3>'
+                             ]
+                         ),
+                         Node_Factory::make(
+                            Input_Text::class,
+                            [
+                                'name' => 'main_title',
+                                'label' => 'Main Title',
+                                'value' => (!empty($data['main_title'])) ? $data['main_title'] : '',
+                                'attributes' => [
+                                    'class' => 'widefat'
+                                ]
+                            ]
+                        ),
+                         Node_Factory::make(
+							WP_Image::class,
+							[
+								'name'       => 'homepage_image_1',
+								'label'      => 'Feature homepage image 1',
+								'value'      => ( ! empty( $data['homepage_image_1'] ) ) ? $data['homepage_image_1'] : ''
+							]
+						),
+                        Node_Factory::make(
+							WP_Image::class,
+							[
+								'name'       => 'homepage_image_2',
+								'label'      => 'Feature homepage image 2',
+								'value'      => ( ! empty( $data['homepage_image_2'] ) ) ? $data['homepage_image_2'] : ''
+							]
+						),
+                        Node_Factory::make(
+							WP_Image::class,
+							[
+								'name'       => 'homepage_image_3',
+								'label'      => 'Feature homepage image 3',
+								'value'      => ( ! empty( $data['homepage_image_3'] ) ) ? $data['homepage_image_3'] : ''
+							]
+						),
+                        Node_Factory::make(
+							WP_Image::class,
+							[
+								'name'       => 'homepage_image_4',
+								'label'      => 'Feature homepage image 4',
+								'value'      => ( ! empty( $data['homepage_image_4'] ) ) ? $data['homepage_image_4'] : ''
+							]
+						),
+                        Node_Factory::make(
+							WP_Image::class,
+							[
+								'name'       => 'homepage_image_5',
+								'label'      => 'Feature homepage image 5',
+								'value'      => ( ! empty( $data['homepage_image_5'] ) ) ? $data['homepage_image_5'] : ''
+							]
+						),
+                        Node_Factory::make(
+							WP_Image::class,
+							[
+								'name'       => 'homepage_image_6',
+								'label'      => 'Feature homepage image 6',
+								'value'      => ( ! empty( $data['homepage_image_6'] ) ) ? $data['homepage_image_6'] : ''
+							]
+						),
+                         Node_Factory::make(
+                             Div::class,
+                             [
+                                 'text_content' => '<hr>'
+                             ]
+                         ),
+                          Node_Factory::make(
+                            Input_Text::class,
+                            [
+                                'name' => 'card_1_title',
+                                'label' => 'Card 1 Title',
+                                'value' => (!empty($data['card_1_title'])) ? $data['card_1_title'] : '',
+                                'attributes' => [
+                                    'class' => 'widefat'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
+                            Input_Text::class,
+                            [
+                                'name' => 'card_1_description',
+                                'label' => 'Card 1 description',
+                                'value' => (!empty($data['card_1_description'])) ? $data['card_1_description'] : '',
+                                'attributes' => [
+                                    'class' => 'widefat'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
+                            Input_Text::class,
+                            [
+                                'name' => 'card_1_url',
+                                'label' => 'Card 1 URL',
+                                'value' => (!empty($data['card_1_url'])) ? $data['card_1_url'] : '',
+                                'attributes' => [
+                                    'class' => 'widefat'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
+                             Div::class,
+                             [
+                                 'text_content' => '<hr>'
+                             ]
+                         ),
+                         Node_Factory::make(
+                            Input_Text::class,
+                            [
+                                'name' => 'card_2_title',
+                                'label' => 'Card 2 Title',
+                                'value' => (!empty($data['card_2_title'])) ? $data['card_2_title'] : '',
+                                'attributes' => [
+                                    'class' => 'widefat'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
+                            Input_Text::class,
+                            [
+                                'name' => 'card_2_description',
+                                'label' => 'Card 2 description',
+                                'value' => (!empty($data['card_2_description'])) ? $data['card_2_description'] : '',
+                                'attributes' => [
+                                    'class' => 'widefat'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
+                            Input_Text::class,
+                            [
+                                'name' => 'card_2_url',
+                                'label' => 'Card 2 URL',
+                                'value' => (!empty($data['card_2_url'])) ? $data['card_2_url'] : '',
+                                'attributes' => [
+                                    'class' => 'widefat'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
+                             Div::class,
+                             [
+                                 'text_content' => '<hr>'
+                             ]
+                         ),
+                         Node_Factory::make(
+                             Div::class,
+                             [
+                                 'text_content' => '<h3>Chapters section settings</h3>'
+                             ]
+                         ),
                         Node_Factory::make(
                             Input_Text::class,
                             [
@@ -101,7 +256,7 @@ class ThemeSettings
                                     'description' => 'Choose the Member from the list'
                                 ],
                                 'options' => (function () {
-                                    $data = get_option('site_theme_settings');
+                                    $data = get_option('ccgn_site_theme_settings');
                                     $author_ids = $data['excom_member1'];
                                     if (!$author_ids) {
                                         return [];
@@ -137,7 +292,7 @@ class ThemeSettings
                                     'description' => 'Choose the Member from the list'
                                 ],
                                 'options' => (function () {
-                                    $data = get_option('site_theme_settings');
+                                    $data = get_option('ccgn_site_theme_settings');
                                     $author_ids = $data['excom_member2'];
                                     if (!$author_ids) {
                                         return [];
@@ -173,7 +328,7 @@ class ThemeSettings
                                     'description' => 'Choose the Member from the list'
                                 ],
                                 'options' => (function () {
-                                    $data = get_option('site_theme_settings');
+                                    $data = get_option('ccgn_site_theme_settings');
                                     $author_ids = $data['excom_member3'];
                                     if (!$author_ids) {
                                         return [];
@@ -431,5 +586,5 @@ class ThemeSettings
         exit;
     }
 }
-$_set = new ThemeSettings;
+$_set = new CCGNThemeSettings;
 
