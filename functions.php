@@ -44,6 +44,9 @@ define( 'BP_AVATAR_FULL_HEIGHT', 300 );
 add_image_size( 'squared', 300, 300, true );
 add_image_size( 'landscape-medium', 740, 416, true );
 add_image_size( 'landscape-featured', 2000, 700, true );
+add_image_size( 'homepage-portrait-large', 260, 570, true );
+add_image_size( 'homepage-squared', 270, 270, true );
+add_image_size( 'homepage-landscape', 380, 260, true );
 
 /**
  * Theme specific stuff
@@ -98,9 +101,10 @@ class ccgn_site {
 		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_styles') );
 		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_scripts') );
 		add_action( 'enqueue_scripts', array($this, 'enqueue_scripts') );
-		//add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue_scripts') );
+		add_action( 'admin_enqueue_scripts', array($this, 'admin_enqueue_scripts') );
 		add_action('init', array($this, 'init_functions') );
 		add_action('init', array($this,'register_menus_locations') );
+		add_filter( 'cc_theme_base_mandatory_sidebars', array($this, 'register_sidebars'));
 	}
 	public function init_functions() {
 		add_post_type_support( 'page', 'excerpt' );
@@ -114,7 +118,15 @@ class ccgn_site {
 		add_theme_support('post-thumbnails');
 		add_theme_support('menus');
 	}
-
+	public function register_sidebars( $sidebars ) {
+		$sidebars['Homepage platforms'] = array(
+			'name' => 'homepage-platforms'
+		);
+		$sidebars['Single Platforms'] = array(
+			'name' => 'single-platform'
+		);
+		return $sidebars;
+	}
 	public function register_menus_locations(){
 		register_nav_menus(array(
 			'main-menu' => 'Main menu',
@@ -136,12 +148,15 @@ class ccgn_site {
 
 	public function enqueue_styles(){
 		// Front-end styles
-    wp_enqueue_style( 'commoners_style', THEME_LOCAL_URI .'/assets/css/styles.css', array( 'dependencies' ), self::theme_ver );
+    wp_enqueue_style( 'commoners_style', THEME_LOCAL_URI .'/assets/css/styles.css', array(  ), self::theme_ver );
 	}
 
 	function admin_enqueue_scripts(){
-
 		// admin scripts
+		$current_screen = get_current_screen();
+		if ( is_admin() && ( $current_screen->id == 'dashboard_page_ccgn-site-settings' ) ) {
+			wp_enqueue_media();
+		}
 	}
 
 	function enqueue_scripts(){

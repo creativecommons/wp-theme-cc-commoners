@@ -33,7 +33,7 @@ class CCGNThemeSettings
     {
         echo '<div class="wrap">';
         screen_icon('index');
-        echo '<h2>' . _x('Site Settings', 'site settings title', 'ccgn') . '</h2>';
+        echo '<h2>' . _x('CCGN Global Site Settings', 'site settings title', 'ccgn') . '</h2>';
         if (!empty($_GET['msg']) && isset($this->flash[$_GET['msg']])) :
             echo '<div class="updated">';
                 echo '<p>' . $this->flash[$_GET['msg']] . '</p>';
@@ -210,6 +210,28 @@ class CCGNThemeSettings
                                 'name' => 'chapters_title',
                                 'label' => 'Chapter section Title',
                                 'value' => (!empty($data['chapters_title'])) ? $data['chapters_title'] : '',
+                                'attributes' => [
+                                    'class' => 'widefat'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
+                            Input_Text::class,
+                            [
+                                'name' => 'new_chapter_text',
+                                'label' => 'New chapter button text',
+                                'value' => (!empty($data['new_chapter_text'])) ? $data['new_chapter_text'] : '',
+                                'attributes' => [
+                                    'class' => 'widefat'
+                                ]
+                            ]
+                        ),
+                        Node_Factory::make(
+                            Input_Text::class,
+                            [
+                                'name' => 'new_chapter_url',
+                                'label' => 'New chapter button url',
+                                'value' => (!empty($data['new_chapter_url'])) ? $data['new_chapter_url'] : '',
                                 'attributes' => [
                                     'class' => 'widefat'
                                 ]
@@ -529,8 +551,8 @@ class CCGNThemeSettings
                             WP_Nonce::class,
                             [
                                 'properties' => [
-                                    'name' => '_site_settings_nonce',
-                                    'action' => 'update_site_settings'
+                                    'name' => '_ccgn_site_settings_nonce',
+                                    'action' => 'ccgn_update_site_settings'
                                 ]
                             ]
                         ),
@@ -548,7 +570,7 @@ class CCGNThemeSettings
                             Input::class,
                             [
                                 'name' => 'action',
-                                'value' => 'update_site_settings',
+                                'value' => 'ccgn_update_site_settings',
                                 'attributes' => [
                                     'type' => 'hidden'
                                 ],
@@ -560,15 +582,28 @@ class CCGNThemeSettings
             echo $form;
     }
     public function saveSettings()
-    {
-        // echo '<pre>'; print_r($_POST); echo '</pre>';
-        // die();
+    {   
         if (empty($_POST['action'])) return;
-        if ($_POST['action'] !== 'update_site_settings') return;
-        if (!wp_verify_nonce($_POST['_site_settings_nonce'], 'update_site_settings')) wp_die(_x("You are not supposed to do that", 'site settings error', 'ccgn'));
+        if ($_POST['action'] !== 'ccgn_update_site_settings') return;
+        if (!wp_verify_nonce($_POST['_ccgn_site_settings_nonce'], 'ccgn_update_site_settings')) wp_die(_x("You are not supposed to do that", 'site settings error', 'ccgn'));
         if (!current_user_can('edit_theme_options')) wp_die(_x("You are not allowed to edit this options", 'site settings error', 'ccgn'));
         $fields = array(
-            'chapters_title', 
+            'main_title',
+            'homepage_image_1',
+            'homepage_image_2',
+            'homepage_image_3',
+            'homepage_image_4',
+            'homepage_image_5',
+            'homepage_image_6',
+            'card_1_title',
+            'card_1_description',
+            'card_1_url',
+            'card_2_title',
+            'card_2_description',
+            'card_2_url',
+            'chapters_title',
+            'new_chapter_text',
+            'new_chapter_url',
             'chapters_content',
             'excom_member1',
             'excom_member2',
@@ -581,10 +616,10 @@ class CCGNThemeSettings
         );
         $raw_post = stripslashes_deep($_POST);
         $data = array_intersect_key($raw_post, array_combine($fields, $fields));
-        update_option('site_theme_settings', $data);
+        update_option('ccgn_site_theme_settings', $data);
         wp_redirect(admin_url('admin.php?page=ccgn-site-settings&msg=updated', 303));
         exit;
     }
 }
-$_set = new CCGNThemeSettings;
+$_ccgnset = new CCGNThemeSettings;
 

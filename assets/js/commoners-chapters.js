@@ -22,8 +22,8 @@ jQuery(document).ready(function($){
     }
     
     var windowPosition = function(event) {
-        var topY = event.pageY + 10,
-            leftX = event.pageX + 10,
+        var topY = event.pageY - 80,
+            leftX = event.pageX - 80,
             positionObj = { 'top': topY, 'left': leftX }
 
         country_name.css(positionObj);
@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
             $('#cc_worldmap').find('#'+value.country_code).addClass('active');
             $('#cc_worldmap').find('#'+value.country_code).on('click',function(e){
                 writeInfoBox(value);
-                info_box.show();
+                info_box.css('visibility', 'visible');
             });
             $('#cc_worldmap').find('#'+value.country_code).hover(function(e){
                 var object = $(this);
@@ -51,25 +51,38 @@ jQuery(document).ready(function($){
     });
     var chapter_table = $('#chapters-table').DataTable({
         "lengthChange": false,
-        "responsive" : true
+        "responsive" : true,
+        "pageLength" : 12,
+        "dom": 'lrtip',
+        "searchPanes": {
+            "controls": false
+        }
     });
-    $('.buttons').find('.button').on('click', function(e){
+    var search_field = $('#chapter-custom-search');
+    search_field.on('keyup click', function(){
+        chapter_table.search(search_field.val()).draw();
+    });
+    $('.switch-buttons').find('.button').on('click', function(e){
         e.preventDefault();
         var object = $(this),
             target = object.attr('href');
-            $('.buttons').find('.button.active').removeClass('active');
+            $('.switch-buttons').find('.button.active').removeClass('active');
             object.addClass('active');
             $('.view-content.active').removeClass('active');
             $(target).addClass('active');
+            console.log(target);
+            if (target == "#view-map") {
+                var panZoomMap = svgPanZoom('#cc_worldmap', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    dblClickZoomEnabled: true,
+                    mouseWheelZoomEnabled: false,
+                    center: true,
+                    viewportSelector: '#cc_worldmap_group'
+                });            
+            }
         return false;
     });
-    var panZoomMap = svgPanZoom('#cc_worldmap', {
-         zoomEnabled: true,
-          controlIconsEnabled: true,
-          fit: true,
-          dblClickZoomEnabled: true,
-          mouseWheelZoomEnabled: false,
-          center: true,
-          viewportSelector: '#cc_worldmap_group'
-     });
+    
 });

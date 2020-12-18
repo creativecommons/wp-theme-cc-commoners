@@ -1,9 +1,13 @@
 //Import Vocabulary 
 @import "@creativecommons/vocabulary/scss/color.scss";
+@import "@creativecommons/vocabulary/scss/color_overrides.scss";
 @import "@creativecommons/vocabulary/scss/spacing.scss";
+@import "@creativecommons/vocabulary/scss/spacing_overrides.scss";
 @import "@creativecommons/vocabulary/scss/typography.scss";
+@import "@creativecommons/vocabulary/scss/typography_overrides.scss";
 
 @import 'mixins';
 @import 'base';
 @import 'modules';
 @import 'widgets';
+@import 'chapters';

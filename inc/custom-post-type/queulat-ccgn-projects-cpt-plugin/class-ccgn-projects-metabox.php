@@ -45,7 +45,7 @@ class Project_Metabox extends Metabox
     public function sanitize_data(array $data): array
     {        
         return queulat_sanitizer($data, [
-          'platform_ids' => ['intval']
+          'platform_id' => ['intval']
         ]);
     }
 }

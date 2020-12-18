@@ -110,6 +110,16 @@ class Platform_Metabox extends Metabox
                     Node_Factory::make(
                       Input_Text::class,
                       [
+                          'name' => 'button_description',
+                          'label' => 'Button Description',
+                          'attributes' => [
+                              'class'    => 'regular-text'
+                          ]
+                      ]
+                    ),
+                    Node_Factory::make(
+                      Input_Text::class,
+                      [
                           'name' => 'button_text',
                           'label' => 'Button text',
                           'attributes' => [
@@ -161,12 +171,13 @@ class Platform_Metabox extends Metabox
     {        
         return queulat_sanitizer($data, [
           'gallery' => ['intval'],
-          'description_text' => ['sanitize_text_field'],
+          'description_text' => ['sanitize_textarea_field'],
           'resources.*.resources_name' => [ 'sanitize_text_field' ],
           'resources.*.resources_url' => [ 'esc_url_raw' ],
           'bottom_title' => ['sanitize_text_field'],
           'buttons.*.button_title' => [ 'sanitize_text_field' ],
           'buttons.*.button_text' => [ 'sanitize_text_field' ],
+          'buttons.*.button_description' => [ 'sanitize_text_field' ],
           'buttons.*.button_url' => [ 'esc_url_raw' ],
           'right_column' => ['sanitize_text_field'],
           'bottom_image' => ['intval'],

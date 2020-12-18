@@ -44,16 +44,20 @@ class render {
         if ( !empty( $member_id ) ) {
             $member = get_user_by('ID', $member_id);
             $profile_link = bp_core_get_user_domain( $member_id );
-            $out .= '<article class="cell hentry entry-voucher entry-chapter-member">';
+            $out .= '<article class="column is-5 entry-voucher entry-chapter-member">';
                 $out .= '<header class="voucher">';
-                    $out .= '<figure class="entry-image">';
-                        $out .= bp_core_fetch_avatar ( array( 'item_id' => $member_id, 'type' => 'full' ) );
+                    $out .= '<figure class="image profile">';
+                        $out .= bp_core_fetch_avatar ( array( 'item_id' => $member_id, 'type' => 'full', 'class' => 'profile' ) );
                     $out .= '</figure>';
-                    $out .= '<h3 class="entry-title">'.$member->display_name.'</h3>';
-                    $out .= '<span class="country">'.$position.'</span>';
+                    $out .= '<h4 class="entry-title b-header">'.$member->display_name.'</h4>';
+                    $out .= '<span class="subtitle padding-vertical-normal">'.$position.'</span>';
                 $out .= '</header>';
                 $out .= '<div class="entry-summary">';
-                    $out .= '<a href="'.$profile_link.'" class="button secondary">View profile</a>';
+                    if ( is_user_logged_in() ) {
+                        $out .= '<a href="'.$profile_link.'" class="button tiny is-text">'.__('See member profile', 'cc-commoners').'</a>';
+                    } else {
+                        $out .= '<a class="button tiny is-gray">'.__('Log in to see member profile', 'cc-commoners').'</a>';
+                    }
                 $out .= '</div>';
 			$out .= '</article>';
         }

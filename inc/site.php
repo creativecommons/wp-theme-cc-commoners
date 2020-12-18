@@ -176,6 +176,60 @@ class Commoners {
         }
         return false;
     }
+    static function homepage_image($image_id, $size) {
+        if ( is_array( $image_id ) ) {
+            $image_id = current( $image_id );
+        }
+        $caption = ( wp_get_attachment_caption($image_id) ) ? '<span class="caption">'.wp_get_attachment_caption($image_id).'</span>' : '';
+        $out = wp_get_attachment_image( $image_id, $size);
+        $out .= $caption;
+        return $out;
+    }
+    static function featured_gallery($images) {
+        $out = '';
+        if (is_array($images)) {
+            foreach ($images as $image) {
+                $out .= '<figure class="cell image-item">';
+                    $out .= wp_get_attachment_image( $image, 'squared' );
+                $out .= '</figure>';
+            }
+        } else {
+            $out .= '<figure class="cell image-item">';
+                $out .= wp_get_attachment_image( current($images), 'landscape-feature' );
+            $out .= '</figure>';
+        }
+        return $out;
+    }
+    static function get_related_projects( $post_id ) {
+        $query = new WP_Query(array(
+            'post_type' => 'ccgn-projects',
+            'post_status' => 'publish',
+            'meta_key' => 'projects_platform_id',
+            'meta_value' => $post_id,
+            'posts_per_page' => -1
+        ));
+        if ( $query->have_posts() ) {
+            return $query->posts;
+        } else {
+            return null;
+        }
+    }
+    static function get_platform_resources( $post_id ) {
+        $resources = get_post_meta( $post_id, 'platforms_resources', false );
+        if ( !empty( $resources ) ) {
+            return $resources;
+        } else {
+            return null;
+        }
+    }
+    static function get_platform_footer_buttons( $post_id ) {
+        $buttons = get_post_meta( $post_id, 'platforms_buttons', false );
+        if ( !empty( $buttons ) ) {
+            return $buttons;
+        } else {
+            return null;
+        }
+    }
 }
 //add_action("wp_ajax_event-chapters__get_countries", Commoners::get_chapters_by_status());
 add_action('wp_ajax_event-get-chapters',array('Commoners','get_chapters_by_status'));

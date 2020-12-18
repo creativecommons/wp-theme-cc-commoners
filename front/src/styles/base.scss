@@ -1,0 +1,18 @@
+.has-tiled-background {
+  background-image: url('../images/pattern-diamond-ccgn.png');
+  background-repeat: repeat;
+}
+
+.move-up {
+  position: relative;
+  margin-top: -8rem;
+  z-index: 10;
+}
+
+.single-ccgn-platforms {
+  &.ccgn-platforms-template-default {
+    .main-content {
+      padding-bottom: 0;
+    }
+  }
+}

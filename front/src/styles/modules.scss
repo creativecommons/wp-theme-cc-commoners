@@ -1,0 +1,273 @@
+.home-featured {
+  margin-top: 3rem;
+  .grid-container {
+    grid-template-columns: repeat(12, minmax(8.3vw, 1fr));
+    grid-gap: 1.5rem;
+    .cell {
+      padding-top: 0;
+      padding-right: 0;
+    }
+  }
+  .homepage-block {
+    padding: 0;
+    height: 30vh;
+    &.use-2-rows {
+      height: 60vh;
+    }
+    &.site-welcome {
+      padding: 0 2rem;
+      .title {
+        margin-top: -2rem;
+      }
+    }
+    &.color-block {
+      overflow: hidden;
+      &.block-1 {
+        transform: skew(-2deg,-1deg) translatex(-1vw);
+      }
+      &.block-2 {
+        transform: skew(1deg,2deg) translatex(4vw);
+      }
+      &.block-3 {
+        transform: translatex(-2vw);
+      }
+      &.block-4 {
+        transform: skew(4deg,-5deg) rotate(3deg) translatey(-.2vw);
+      }
+    }
+    &.card-block {
+      height: 30vh;
+      .card {
+        height: 100%;
+        &.entry-post {
+          &.link {
+            a {
+              height: 100%;
+              .card-content {
+                &.has-bottom-link {
+                  padding: 0 0 1rem 0;
+                  .card-title {
+                    font-size: 1.75rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.card-1 {
+        .card {
+          overflow: visible;
+          a {
+            transform: skew(0deg, 3deg) rotate(-2.5deg);
+          }
+        }
+      }
+      &.card-2 {
+        .card {
+          overflow: visible;
+          a {
+            transform: skew(-4deg, 3deg) rotate(-3deg);
+          }
+        }
+      }
+    }
+    &.image-block {
+      &.background-effect {
+        @include duotone-effect;
+        &.tomato {
+          @include duotone-red;
+        }
+        &.blue {
+          @include duotone-blue;
+        }
+      }
+      &.image-1 {
+        transform: skew(1deg, 1deg);
+        .caption {
+          top: -.3rem;
+          right: -.3rem;
+        }
+      }
+      &.image-2 {
+        transform: skew(-1deg, 2deg) rotate(-1.5deg);
+        .caption {
+          @include offset-bottom-left;
+        }
+      }
+      &.image-3 {
+        transform: skew(-5deg, 4deg) rotate(-5deg) translatex(1.5vw);
+        .caption {
+          @include offset-bottom-left;
+        }
+      }
+      &.image-4 {
+        transform: skew(-1deg, -2deg) rotate(1deg) translatex(-.5vw);
+        .caption {
+          @include offset-bottom-left;
+        }
+      }
+      &.image-5 {
+        transform: translatex(-1vw);
+        .caption {
+          @include offset-bottom-left;
+        }
+      }
+      &.image-6 {
+        .caption {
+          @include offset-bottom-left;
+        }
+      }
+      .caption {
+        @include caption-style;
+      }
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        filter: saturate(0%);
+      }
+    }
+  }
+}
+
+.platforms {
+  margin-bottom: 7rem;
+  .container {
+    position: relative;
+    top: 7rem;
+    .grid-container {
+      grid-gap: 2rem;
+    }
+  }
+}
+.homepage-widgets {
+  margin-top: 12rem;
+  margin-bottom: 2rem;
+}
+.platform-featured {
+  .grid-container {
+    .cell {
+      padding: 0;
+      &.image-item {
+        max-height: 373px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.entry-header {
+   h1 {
+      color: $color-dark-slate-blue;
+    }
+  .platform-description {
+    font-size: $font-size-body-bigger;
+  }
+}
+
+.platform-featured {
+  .grid-container {
+    .image-item {
+      @include duotone-effect;
+      &:nth-child(odd) {
+        @include duotone-blue;
+      }
+      &:nth-child(even) {
+        @include duotone-red;
+      }
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        filter: saturate(0%);
+      }
+    }
+  }
+}
+
+.projects {
+  .grid-container {
+    .card {
+      border-radius: 0;
+      box-shadow: inset 0px 3px 0px $color-black;
+      .card-content {
+        padding-bottom: 3.2rem;
+        .card-title {
+          @extend .b-header;
+          @extend .title;
+          @extend .is-5;
+        }
+        .button {
+          float: right;
+          margin-top: 1rem;
+          font-family: $family-primary;
+          text-transform: none;
+          color: $color-tomato;
+          &:after {
+            content: "";
+            margin-left: .3rem;
+            font-size: .8rem;
+            font-weight: initial;
+            font-family: "Vocabulary Icons", monospace !important;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.project-resources {
+  .resources-list {
+    padding-left: $space-normal;
+    margin-top: $space-bigger;
+    list-style-type: disc;
+  }
+}
+
+.platform-footer {
+  h1 {
+    color: $white;
+  }
+  .button-container {
+    margin-bottom: $space-bigger;
+    h4 {
+      color: $white;
+      margin-bottom: .8rem;
+    }
+    .body-small {
+      margin-bottom: .8rem;
+    }
+    .button {
+      &.is-primary {
+        background-color: $color-soft-tomato;
+        color: $color-tomato;
+      }
+    }
+  }
+  .bottom-image {
+    position: relative;
+    top: .3rem;
+    width: 40vw;
+    @include duotone-effect;
+    @include duotone-blue;
+    .caption {
+      @include caption-style;
+      top: 0;
+      right: 0;
+    }
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      filter: saturate(0%);
+    }
+  }
+}

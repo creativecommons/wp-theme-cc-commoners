@@ -1,0 +1,16 @@
+.widget {
+  .card {
+    &.entry-post {
+      text-align: left;
+      box-shadow: inset 0px 3px 0px $color-black;
+      border-radius: 0;
+      .card-content {
+        .card-title {
+          a {
+            color: $color-tomato;
+          }
+        }
+      }
+    }
+  }
+}
