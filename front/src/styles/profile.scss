@@ -1,0 +1,44 @@
+.bp-user {
+  .main-content {
+    #buddypress {
+      #cover-image-container {
+        #item-header-avatar {
+          margin-top: 0;
+          float: none;
+        }
+      }
+      #item-meta {
+        .user-nicename {
+          @extend .title;
+          @extend .is-1;
+          color: $color-dark-slate-blue;
+        }
+      }
+      .ccgn-badges {
+        display: flex;
+        .badge {
+          width: 2.5rem;
+          margin-right: 1rem;
+          cursor: help;
+          svg {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+      .profile-vouchers {
+        .vouchers-list {
+          .entry-voucher {
+            display: flex;
+            .entry-summary {
+              padding-left: $space-normal;
+              .country {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@ class members_search {
     private $page;
     private $languages;
     private $country;
-    private $total_per_page = 12;
+    private $total_per_page = 24;
     private $application_type;
     public function set_default_role( $role ) {
         $this->default_role = $role;

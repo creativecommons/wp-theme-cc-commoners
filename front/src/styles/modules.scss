@@ -271,3 +271,42 @@
     }
   }
 }
+.entry-header {
+  position: relative;
+  .entry-thumbnail {
+    position: absolute;
+    right: 0;
+    top: $space-bigger;
+    width: 30vw;
+    .image {
+      @include duotone-effect;
+      @include duotone-red;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        filter: saturate(0%);
+      }
+    }
+  }
+}
+.link-list {
+  a {
+    margin-right: $space-small;
+    margin-bottom: $space-small;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+.entry-single-member {
+  .entry-image {
+    margin: auto;
+  }
+  .entry-title {
+    display: block;
+    a {
+      color: $black;
+    }
+  }
+}

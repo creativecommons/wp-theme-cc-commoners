@@ -11,7 +11,7 @@ class bp_commoners {
     }
     static function check_if_user_is_accepted() {
         $active = ccgn_registration_user_get_stage_and_date( bp_displayed_user_id() );
-        if ( active['stage'] != 'accepted' ) {
+        if ( $active['stage'] != 'accepted' ) {
             wp_redirect( home_url() );
             exit;
         }
@@ -20,7 +20,7 @@ class bp_commoners {
         $user_id = bp_displayed_user_id();
         $displayed_user = get_user_by('ID', $user_id );
         if ( self::current_user_is_accepted() ) {
-            echo '<p class="user-email">'.$displayed_user->user_email.'</p>';
+            echo '<p class="user-email is-hidden">'.$displayed_user->user_email.'</p>';
         }
         if ( ccgn_member_is_individual ( $user_id ) ) {
             echo _('Individual Member');

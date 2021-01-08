@@ -4,7 +4,7 @@
         <div class="grid-x hentry">
             <div class="cell auto">
                 <header class="section-header">
-                    <h1 class="archive-title"><?php echo front::page_title(); ?></h1>
+                    <h1 class="archive-title"><?php echo Commoners::page_title(); ?></h1>
                 </header>
                 <section class="entry-content">
                     <?php 

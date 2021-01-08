@@ -15,25 +15,18 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 	<?php 
 		$bio = xprofile_get_field_data('Bio', bp_displayed_user_id() );
 		if ( !empty( $bio ) ) {
-			echo '<div class="grid-x align-center">';
-				echo '<div class="cell large-8 medium-8">';
-					echo '<h3 class="middle-title"><span>Bio</span></h3>';
-					echo '<div class="entry-summary bio">'.apply_filters( 'the_content', $bio ).'</div>';
-				echo '</div>';
+			echo '<div class="profile-bio margin-vertical-bigger">';
+				echo apply_filters( 'the_content', $bio );
 			echo '</div>';
 		}
 		$areas = xprofile_get_field_data( 'Areas of Interest', bp_displayed_user_id() );
 		if ( !empty( $areas ) ) {
-			echo '<div class="grid-x align-center">';
-				echo '<div class="cell large-8 medium-8">';
-					echo '<div class="side-links">';
-						echo '<div class="side-title">Areas of interest</div>';
-						echo '<div class="link-list">';
-							foreach ( $areas as $area) {
-								echo '<a href="'.site_url('members').'/?members_search='.urlencode( $area ).'" class="button gray tiny">'.$area.'</a>';
-							}
-						echo '</div>';
-					echo '</div>';
+			echo '<div class="profile-areas margin-padding-vertical-bigger">';
+				echo '<h3>'.__('Areas of interest','cc-commoners').'</h3>';
+				echo '<div class="link-list margin-vertical-normal">';
+					foreach ( $areas as $area) {
+						echo '<a href="'.site_url('members').'/?members_search='.urlencode( $area ).'" class="button tag tiny">'.$area.'</a>';
+					}
 				echo '</div>';
 			echo '</div>';
 		}
@@ -41,16 +34,12 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 		if ( !empty( $links ) ) {
 			preg_match_all("/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/", $links, $match);
 			if ( !empty( $match[0] ) ) {
-				echo '<div class="grid-x align-center">';
-					echo '<div class="cell large-8 medium-8">';
-						echo '<div class="side-links">';
-							echo '<div class="side-title">Links</div>';
-							echo '<div class="link-list">';
-								foreach ( $match[0] as $link) {
-									echo '<a href="'.esc_url( $link ).'" class="button gray tiny" target="_blank">'.esc_url( $link ).'</a>';
-								}
-							echo '</div>';
-						echo '</div>';
+				echo '<div class="profile-links margin-vertical-bigger">';
+					echo '<h3>'.__('Links','cc-commoners').'</h3>';
+					echo '<div class="link-list margin-vertical-normal">';
+						foreach ( $match[0] as $link) {
+							echo '<a href="'.esc_url( $link ).'" class="button gray tag tiny" target="_blank">'.esc_url( $link ).'</a>';
+						}
 					echo '</div>';
 				echo '</div>';
 			}
@@ -58,17 +47,15 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 		if ( bp_commoners::current_user_is_accepted() ) {
 			$vouchers = ccgn_application_users_page_vouch_responses_data( bp_displayed_user_id() , true );
 			if ( !empty( $vouchers ) ) {
-				echo '<div class="grid-x align-center">';
-					echo '<div class="cell large-8 medium-8">';
-						echo '<h3 class="middle-title"><span>Vouching</span></h3>';			
-							echo '<div class="grid-x grid-margin-x large-up-2 medium-up-2">';
+				echo '<div class="profile-vouchers">';
+					echo '<h3>'.__('Vouching','cc-commoners').'</h3>';			
+						echo '<div class="vouchers-list">';
 							foreach ( $vouchers as $voucher ) {
 								if ( $voucher['vouched'] == 'Yes' ) {
 									echo render::voucher($voucher);
 								}
 							}
-							echo '</div>';
-					echo '</div>';
+						echo '</div>';
 				echo '</div>';
 			}
 		}

@@ -3,21 +3,28 @@
     the_post();
 ?>
 <section class="main-content">
-    <div class="grid-container">
-        <div class="grid-x grid-padding-x align-center">
-            <?php 
-            
-                $grid = ( bp_is_user_profile() ) ? '10' : '8'; 
-            ?>
-            <div class="cell large-<?php echo $grid ?> medium-<?php echo $grid ?>">
-                <header class="entry-header page-header">
-                    <h1 class="entry-title"><?php the_title() ?></h1>
-                </header>
-                <section class="entry-content page-content">
-                    <?php the_content(); ?>
-                </section>
-            </div>
+    <?php if (!bp_is_user_profile()): ?>
+        <?php   
+            global $post;
+            get_template_part('inc/partials/entry','header');
+        ?>
+        <div class="container">
+            <section class="entry-content page-content margin-vertical-larger">
+                <div class="columns">
+                    <div class="column is-8">
+                        <div class="content">
+                            <?php the_content(); ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
+        <?php else: ?>
+        <div class="container">
+            <section class="entry-content page-content">
+                <?php the_content(); ?>
+            </section>
+        </div>
+    <?php endif; ?>
 </section>
 <?php get_footer(); ?>

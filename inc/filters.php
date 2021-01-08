@@ -34,7 +34,7 @@ function remove_admin_bar()
 }
 /**
  *  We add member metadata when and administrator is added to the website
- *  The administraror will ve an approved individual member but won't be listed in the members section because isn't a subscriber
+ *  The administraror will be an approved individual member but won't be listed in the members section because isn't a subscriber
  */
 function add_admin_member_metadata( $user_id ) {
     if ( !current_user_can( 'edit_user', $user_id ) ) {

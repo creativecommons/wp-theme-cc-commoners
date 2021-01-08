@@ -8,13 +8,13 @@ class render {
         if ( !empty($member) ) {
             $country = xprofile_get_field_data('Location', $member->ID );
             $profile_link = bp_core_get_user_domain( $member->ID );
-            $out .= '<article class="cell hentry entry-single-member">';
-                $out .= '<figure class="entry-image profile-image">';
+            $out .= '<article class="column hentry entry-single-member has-text-centered">';
+                $out .= '<figure class="entry-image image is-128x128">';
                     $out .= '<a href="'.$profile_link.'">';
-                        $out .= bp_core_fetch_avatar ( array( 'item_id' => $member->ID, 'type' => 'full' ) );
+                        $out .= bp_core_fetch_avatar ( array( 'item_id' => $member->ID, 'type' => 'full', 'class' => 'profile' ) );
                     $out .= '</a>';
                 $out .= '</figure>';
-                $out .= '<h3 class="entry-title"><a href="'.$profile_link.'">'.$member->display_name.'</a></h3>';
+                $out .= '<strong class="entry-title"><a href="'.$profile_link.'">'.$member->display_name.'</a></strong>';
                 $out .= '<span class="country">'.$country.'</span>';
             $out .= '</article>';
         }
@@ -24,15 +24,15 @@ class render {
         $out = '';
         if ( !empty( $voucher ) ) {
             $country = xprofile_get_field_data('Location', $voucher['id'] );
-            $out .= '<article class="cell hentry entry-voucher">';
+            $out .= '<article class="hentry entry-voucher margin-vertical-normal">';
                 $out .= '<header class="voucher">';
-                    $out .= '<figure class="entry-image">';
-                        $out .= bp_core_fetch_avatar ( array( 'item_id' => $voucher['id'], 'type' => 'thumb' ) );
+                    $out .= '<figure class="entry-image image is-128x128">';
+                        $out .= bp_core_fetch_avatar ( array( 'item_id' => $voucher['id'], 'type' => 'thumb', 'class' => 'profile' ) );
                     $out .= '</figure>';
-                    $out .= '<h3 class="entry-title">'.$voucher['name'].'</h3>';
-                    $out .= '<span class="country">'.$country.'</span>';
                 $out .= '</header>';
                 $out .= '<div class="entry-summary">';
+                    $out .= '<h4 class="b-header entry-title">'.$voucher['name'].'</h4>';
+                    $out .= '<span class="country margin-vertical-smaller">'.$country.'</span>';
                     $out .= apply_filters( 'the_content', $voucher['reason'] );
                 $out .= '</div>';
 			$out .= '</article>';

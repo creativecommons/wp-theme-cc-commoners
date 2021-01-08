@@ -1,5 +1,5 @@
 <?php
-class front {
+class Commoners {
     static function page_title(){
 		$get= get_queried_object();
 		if (is_post_type_archive())
@@ -14,35 +14,9 @@ class front {
 			return 'Search for por: &#8220;'. get_search_query() .'&#8221;';
 		if (is_404())
 			return 'Sorry, page not found';
+        if (is_page())
+            return get_the_title(get_queried_object()->ID);
 	}
-    public static function get_post_type($post_type,$size, $return = 'ENTRIES',$order = 'menu_order', $orderby='ASC') {
-        $args = array(
-            'post_type' => $post_type,
-            'post_status' => 'publish',
-            'posts_per_page' => $size,
-            'orderby' => $order,
-            'order' => $orderby
-        );
-        $query = new WP_Query($args);
-        if ($query->have_posts() && ($return == 'ENTRIES')) {
-            return $query->posts;
-        } else if ( $query->have_posts() && ($return == 'OBJECT') ) {
-            return $query;
-        } else {
-            return false;
-        }
-    }
-    public static function get_last_featured() {
-        $featured_items = self::get_post_type('ccgnfeature', 1);
-        return $featured_items;
-    }
-    public static function get_featured_members($size) {
-        $featured_members = self::get_post_type('ccgnfeaturedmember', $size,'ENTRIES','rand');
-        return $featured_members;
-    } 
-}
-
-class Commoners {
     public static function set_ccgn_logo() {
         return 'products/global_network.svg#globalnetwork';
     }
@@ -107,6 +81,20 @@ class Commoners {
             return null;
         }
 
+    }
+    public static function maybe_return_chapter_link( $chapter_country ) {
+        $params = array(
+            'post_type' => 'cc_chapters',
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+            's' => $chapter_country
+        );
+        $query = new WP_Query($params);
+        if ($query->have_posts()) {
+            return '<a href="'.get_permalink($query->posts[0]->ID).'">'.get_the_title($query->posts[0]->ID).'</a>';
+        } else {
+            return $chapter_country;
+        }
     }
     public static function stats() {
         //delete_transient('ccgn_global_stats');
@@ -229,6 +217,29 @@ class Commoners {
         } else {
             return null;
         }
+    }
+    static function get_faq_with_section() {
+        $list_taxonomies_posts = array();
+        $faq_taxonomies = get_terms('tax-ccgn-faq');
+        foreach ($faq_taxonomies as $term) {
+            $list_taxonomies_posts[$term->term_id]['term'] = $term;
+            $query = new WP_Query(array(
+                'post_type' => 'ccgn-faq',
+                'posts_per_page' => -1,
+                'post_status' => 'publish',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'tax-ccgn-faq',
+                        'field' => 'slug',
+                        'terms' => $term->slug
+                    )
+                )
+            ));
+            if ($query->have_posts()) {
+                $list_taxonomies_posts[$term->term_id]['posts'] = $query->posts;
+            }
+        }
+        return $list_taxonomies_posts;
     }
 }
 //add_action("wp_ajax_event-chapters__get_countries", Commoners::get_chapters_by_status());

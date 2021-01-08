@@ -45,6 +45,7 @@ add_image_size( 'squared', 300, 300, true );
 add_image_size( 'landscape-medium', 740, 416, true );
 add_image_size( 'landscape-featured', 2000, 700, true );
 add_image_size( 'homepage-portrait-large', 260, 570, true );
+add_image_size( 'portrait-page', 480, 600, true );
 add_image_size( 'homepage-squared', 270, 270, true );
 add_image_size( 'homepage-landscape', 380, 260, true );
 

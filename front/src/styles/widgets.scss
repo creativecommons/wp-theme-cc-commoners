@@ -1,4 +1,13 @@
 .widget {
+  &.big-search {
+    .search-users-form {
+      .submit-form {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        font-size: 1.025rem;
+      }
+    }
+  }
   .card {
     &.entry-post {
       text-align: left;

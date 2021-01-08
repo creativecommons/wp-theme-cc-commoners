@@ -1,0 +1,229 @@
+header.chapter-list {
+  display: flex;
+  padding: 1rem 0 3rem 0;
+  align-items: center;
+  .search-chapter {
+    .search-box {
+      width: 16rem;
+      padding: .5rem;
+      margin-right: 1rem;
+    }
+  }
+}
+#chapters-table {
+  width: 100% !important;
+  &.cards{
+    thead {
+      display: none;
+    }
+    tbody {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      tr {
+        width: 15.7rem;
+        margin-bottom: 2.5rem;
+        border: 3px solid $black;
+      }
+      td {
+        &:first-child {
+          display: block;
+          @extend .title;
+          @extend .is-4;
+          a {
+            color: $black;
+            &:hover {
+              color: $color-tomato;
+            }
+          }
+        }
+        &:nth-child(8) {
+          display: block;
+          padding: 0;
+          img {
+            position: relative;
+            top: .4rem;
+          }
+        }
+        &:nth-child(4) {
+          display: block;
+          margin-bottom: 3.5rem;
+          padding-top: 0;
+          color: $black;
+          &:before {
+            content: 'Lead by ';
+          }
+        }
+        display: none;
+      }
+      label {
+        display: inline;
+        position: relative;
+        font-size: 85%;
+        top: -0.5rem;
+        float: left;
+        color: #808080;
+        min-width: 4rem;
+        margin-left: 0;
+        margin-right: 1rem;
+        text-align: left;
+      }
+    }
+  }
+}
+.world-map {
+  // position: relative;
+  #cc_worldmap {
+    .active {
+      fill: $color-forest-green;
+      &:hover {
+        fill: $color-gold;
+        cursor: pointer;
+      }
+    }
+  }
+  #world-map-info {
+    display: none;
+    position: absolute;
+    padding: 1rem;
+    min-width: 22rem;
+    top: 0;
+    background-color: $white;
+    box-shadow: 1px 1px 4px rgba($black,.3);
+    .chapter-title {
+      margin-bottom: 0;
+      font-weight: bold;
+      @extend .title;
+      @extend .is-4
+    }
+    .chapter-line {
+      margin-top: 0;
+      margin-bottom: .2rem;
+      font-size: .9rem;
+      color: $color-dark-gray;
+      font-style: italic;
+    }
+    .chapter-buttons {
+      margin-top: 1.5rem;
+      margin-bottom: 0;
+      text-align: center;
+      .button {
+        color: $white;
+        &:hover {
+          background: $color-tomato;
+        }
+      }
+    }
+    
+  }
+}
+#country-name {
+  display: none;
+  position: absolute;
+  padding: .5rem;
+  top: 0;
+  background-color: $white;
+  box-shadow: 1px 1px 4px rgba($black,.3);
+}
+.view-content {
+  display: none;
+  margin-bottom: 1.5rem;
+  &.active {
+    display: block;
+  }
+  #chapters-table {
+    width: 100% !important;
+  }
+  &.map-list {
+  }
+}
+.switch-buttons {
+  position: relative;
+  top: 4rem;
+  justify-content: flex-end;
+  .chapter-buttons {
+    .is-text {
+      color: $color-tomato;
+      font-family: $family-primary;
+      font-size: .9rem;
+      text-transform: initial;
+      &.active {
+        color: $color-dark-gray;
+      }
+    }
+  }
+}
+.view-switch {
+  margin-bottom: 2rem;
+  .columns {
+    padding: .5rem 0;
+    margin-bottom: 3rem;
+    .title {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      font-size: .9rem;
+    }
+  }
+  .map-header-content {
+    visibility: hidden;
+    .inline-container {
+      display: flex;
+      align-items: center;
+      .chapter-title {
+        margin-bottom: 0;
+      }
+      .chapter-metadata {
+        padding-left: 1rem;
+        text-transform: none;
+        p {
+          margin-bottom: 0;
+          &:last-child {
+            color: $color-dark-gray;
+          }
+        }
+      }
+      .more {
+        margin-bottom: 0;
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+.chapter-image-container {
+  position: relative;
+  .chapter-image {
+    position: absolute;
+    right: 0;
+    top: -7rem;
+    width: 39vw;
+    .caption {
+      @include caption-style;
+      bottom: 0;
+      left: 0;
+    }
+    img {
+      width: 100%;
+      transform: skew(-2deg, 2deg) rotate(-2.8deg);
+    }
+  }
+}
+.chapter-leads {
+  .entry-chapter-member {
+    .image {
+      width: 65%;
+    }
+    .subtitle {
+      display: block;
+      font-size: .9rem;
+      font-weight: initial;
+    }
+    .button {
+      &.is-gray {
+        background-color: $color-lighter-gray;
+        color: $color-dark-gray;
+      }
+    }
+  }
+}
