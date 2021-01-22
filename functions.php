@@ -17,22 +17,22 @@ define( 'MEMBERS_PAGE_ID', 4 );
 /*
 	calling related files
 */
-	require STYLESHEETPATH . '/inc/site.php';
-	require STYLESHEETPATH . '/inc/render.php';
-	require STYLESHEETPATH . '/inc/widgets.php';
-	require STYLESHEETPATH . '/inc/bp-integration.php';
-	require STYLESHEETPATH . '/inc/search.php';
-	require STYLESHEETPATH . '/inc/settings.php';
-	require STYLESHEETPATH . '/inc/filters.php';
-	require STYLESHEETPATH . '/inc/taxonomies.php';
-	require STYLESHEETPATH . '/inc/class-ccgn-components.php';
+	require get_stylesheet_directory() . '/inc/site.php';
+	require get_stylesheet_directory() . '/inc/render.php';
+	require get_stylesheet_directory() . '/inc/widgets.php';
+	require get_stylesheet_directory() . '/inc/bp-integration.php';
+	require get_stylesheet_directory() . '/inc/search.php';
+	require get_stylesheet_directory() . '/inc/settings.php';
+	require get_stylesheet_directory() . '/inc/filters.php';
+	require get_stylesheet_directory() . '/inc/taxonomies.php';
+	require get_stylesheet_directory() . '/inc/class-ccgn-components.php';
 
 // Custom Post type files
-require STYLESHEETPATH . '/inc/custom-post-type/queulat-ccgn-projects-cpt-plugin/ccgn-projects-cpt-plugin.php';
-require STYLESHEETPATH . '/inc/custom-post-type/queulat-ccgn-faq-cpt-plugin/ccgn-faq-cpt-plugin.php';
-require STYLESHEETPATH . '/inc/custom-post-type/queulat-ccgn-platforms-cpt-plugin/ccgn-platforms-cpt-plugin.php';
-require STYLESHEETPATH . '/inc/custom-post-type/queulat-cc-chapters-cpt-plugin/cc-chapters-cpt-plugin.php';
-require STYLESHEETPATH . '/inc/custom-post-type/queulat-ccgnfeature-cpt-plugin/ccgnfeature-cpt-plugin.php';
+require get_stylesheet_directory() . '/inc/custom-post-type/queulat-ccgn-projects-cpt-plugin/ccgn-projects-cpt-plugin.php';
+require get_stylesheet_directory() . '/inc/custom-post-type/queulat-ccgn-faq-cpt-plugin/ccgn-faq-cpt-plugin.php';
+require get_stylesheet_directory() . '/inc/custom-post-type/queulat-ccgn-platforms-cpt-plugin/ccgn-platforms-cpt-plugin.php';
+require get_stylesheet_directory() . '/inc/custom-post-type/queulat-cc-chapters-cpt-plugin/cc-chapters-cpt-plugin.php';
+require get_stylesheet_directory() . '/inc/custom-post-type/queulat-ccgnfeature-cpt-plugin/ccgnfeature-cpt-plugin.php';
 
 /* AVATAR MAX CROP SIZING */
 define( 'BP_AVATAR_THUMB_WIDTH', 150 );
