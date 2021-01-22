@@ -1,0 +1,202 @@
+.cc-commoners {
+  .main-content {
+    .entry-header {
+      @include touch() {
+        h1 {
+          font-size: unquote("clamp(2.2rem, 1.1222rem + 1.8889vw, 3.56rem)");
+        }
+      }
+    }
+  }
+  &.bp-user {
+    @include touch() {
+      .main-content {
+        #buddypress {
+          #item-header {
+            #cover-image-container {
+              #item-header-cover-image {
+                #item-header-avatar {
+                  text-align: left;
+                  .profile {
+                    width: 40vw;
+                  }
+                }
+              }
+            }
+          }
+          #item-meta {
+            margin-bottom: $space-normal;
+            .user-nicename {
+              @include touch {
+                font-size: 2.4rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.page-template-template-members {
+    .main-content {
+      .search-users-form {
+        @include touch {
+          .control {
+            .select {
+              width: 100%;
+              select {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+      .entry-content {
+        @include touch() {
+          .columns {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+  &.single-cc_chapters {
+    .chapter-image-container {
+      @include mobile() {
+        margin: 1rem;
+        .chapter-image {
+          position: static;
+          width: 100%;
+        }
+      }
+    }
+    .chapter-leads {
+      .entry-chapter-member {
+        @include mobile() {
+          display: flex;
+          .voucher {
+            width: 50%;
+          }
+          .entry-summary {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+  &.post-type-archive-cc_chapters {
+    header.chapter-list {
+      @include mobile() {
+        .search-chapter {
+          margin-bottom: $space-normal;
+        }
+      }
+    }
+    #chapters-table {
+      &.cards {
+        tbody {
+          tr {
+            @include mobile() {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.single-ccgn-platforms {
+    @include touch() {
+      .main-content {
+        .platform-featured {
+          .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr 1fr;
+          }
+        }
+        .pre-content {
+          padding: $space-big !important;
+          margin-top: 0;
+          .entry-header {
+            h1 {
+              font-size: 2.4rem;
+            }
+            .platform-description {
+              font-size: 1rem;
+            }
+          }
+        }
+        .platform-footer {
+          h1 {
+            font-size: 2.4rem;
+          }
+          .bottom-image {
+            width: 100%;
+            margin-top: $space-bigger;
+          }
+        }
+      }
+    }
+  }
+  .home-featured {
+    .grid-container {
+      @include touch() {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "first-row first-row"
+          "second-row second-row"
+          "third-row third-row"
+          "fourth-row fourth-row"
+          "fifth-row fifth-row";
+        .site-welcome {
+          grid-column: span 2;
+          order: 1;
+          grid-area: first-row;
+          height: auto;
+        }
+        .card-1 {
+          order: 4;
+          grid-area: third-row;
+          .card {
+            a {
+              margin: 0 3rem 0 2rem;
+              transform: none !important;
+            }
+          }
+        }
+        .card-2 {
+          order: 7;
+          grid-area: fifth-row;
+          .card {
+            a {
+              margin: 0 3rem 0 2rem;
+              transform: none !important;
+            }
+          }
+        }
+        .block-1 {
+          order: 2;
+          grid-column: 1 !important;
+          grid-area: second-row;
+          margin: 0.5rem 2rem;
+        }
+        .block-3 {
+          order: 5;
+          grid-column: 2 !important;
+          grid-area: fourth-row;
+          margin: 0.5rem 2rem;
+        }
+        .image-4 {
+          order: 3;
+          grid-column: 2 !important;
+          grid-area: second-row;
+        }
+        .image-5 {
+          order: 6;
+          grid-column: 1 !important;
+          grid-area: fourth-row;
+        }
+      }
+    }
+  }
+}

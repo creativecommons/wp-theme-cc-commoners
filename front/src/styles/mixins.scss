@@ -56,3 +56,8 @@
     background-color: $color-black;
   }
 }
+
+@mixin tiled-background() {
+  background-image: url('../images/pattern-diamond-ccgn.png');
+  background-repeat: repeat;
+}

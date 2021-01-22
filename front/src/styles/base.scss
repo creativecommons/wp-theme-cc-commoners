@@ -1,6 +1,5 @@
 .has-tiled-background {
-  background-image: url('../images/pattern-diamond-ccgn.png');
-  background-repeat: repeat;
+  @include tiled-background;
 }
 
 .move-up {
@@ -13,6 +12,48 @@
   &.ccgn-platforms-template-default {
     .main-content {
       padding-bottom: 0;
+    }
+  }
+}
+
+.single {
+  .single-header {
+    background-color: $white;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 23vh;
+      top: 0;
+      @include tiled-background;
+    }
+  }
+}
+
+.main-header {
+  .navbar {
+    .login-button {
+      margin-left: $space-normal;
+      text-transform: initial;
+      font-family: $family-source-sans-pro;
+      font-weight: 700;
+      .icon {
+        padding-right: 1.8rem;
+        padding-top: 0.1rem;
+        .dashicons {
+          &:before {
+            width: 15px;
+            height: 15px;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .user-menu {
+      .control {
+        max-width: 10rem;
+      }
     }
   }
 }

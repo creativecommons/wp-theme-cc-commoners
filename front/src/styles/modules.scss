@@ -18,21 +18,22 @@
       padding: 0 2rem;
       .title {
         margin-top: -2rem;
+        font-size: unquote("clamp(2.2rem, 1.1222rem + 1.8889vw, 3.56rem)");
       }
     }
     &.color-block {
       overflow: hidden;
       &.block-1 {
-        transform: skew(-2deg,-1deg) translatex(-1vw);
+        transform: skew(-2deg, -1deg) translatex(-1vw);
       }
       &.block-2 {
-        transform: skew(1deg,2deg) translatex(4vw);
+        transform: skew(1deg, 2deg) translatex(4vw);
       }
       &.block-3 {
         transform: translatex(-2vw);
       }
       &.block-4 {
-        transform: skew(4deg,-5deg) rotate(3deg) translatey(-.2vw);
+        transform: skew(4deg, -5deg) rotate(3deg) translatey(-0.2vw);
       }
     }
     &.card-block {
@@ -85,8 +86,8 @@
       &.image-1 {
         transform: skew(1deg, 1deg);
         .caption {
-          top: -.3rem;
-          right: -.3rem;
+          top: -0.3rem;
+          right: -0.3rem;
         }
       }
       &.image-2 {
@@ -102,7 +103,7 @@
         }
       }
       &.image-4 {
-        transform: skew(-1deg, -2deg) rotate(1deg) translatex(-.5vw);
+        transform: skew(-1deg, -2deg) rotate(1deg) translatex(-0.5vw);
         .caption {
           @include offset-bottom-left;
         }
@@ -162,9 +163,9 @@
 }
 
 .entry-header {
-   h1 {
-      color: $color-dark-slate-blue;
-    }
+  h1 {
+    color: $color-dark-slate-blue;
+  }
   .platform-description {
     font-size: $font-size-body-bigger;
   }
@@ -210,8 +211,8 @@
           color: $color-tomato;
           &:after {
             content: "";
-            margin-left: .3rem;
-            font-size: .8rem;
+            margin-left: 0.3rem;
+            font-size: 0.8rem;
             font-weight: initial;
             font-family: "Vocabulary Icons", monospace !important;
           }
@@ -240,10 +241,10 @@
     margin-bottom: $space-bigger;
     h4 {
       color: $white;
-      margin-bottom: .8rem;
+      margin-bottom: 0.8rem;
     }
     .body-small {
-      margin-bottom: .8rem;
+      margin-bottom: 0.8rem;
     }
     .button {
       &.is-primary {
@@ -254,7 +255,7 @@
   }
   .bottom-image {
     position: relative;
-    top: .3rem;
+    top: 0.3rem;
     width: 40vw;
     @include duotone-effect;
     @include duotone-blue;
@@ -278,6 +279,8 @@
     right: 0;
     top: $space-bigger;
     width: 30vw;
+    max-height: 50vh;
+    overflow: hidden;
     .image {
       @include duotone-effect;
       @include duotone-red;
@@ -299,6 +302,26 @@
     }
   }
 }
+.vouch-list {
+  list-style-type: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 3rem !important;
+  padding-left: 0 !important;
+  .vouch-item {
+    margin: 0;
+    a {
+      @extend .button;
+      @extend .is-text;
+      display: block;
+      padding: 0.5rem;
+      border-bottom: 1px solid $color-lighter-gray;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
 .entry-single-member {
   .entry-image {
     margin: auto;
@@ -307,6 +330,105 @@
     display: block;
     a {
       color: $black;
+    }
+  }
+}
+
+.ccgn-post {
+  border: 3px solid $color-black;
+  .entry-image {
+    height: 15rem;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .entry-content {
+    padding: $space-big;
+    .b-header {
+      a {
+        color: $color-black;
+      }
+    }
+    .entry-meta {
+      display: flex;
+      .entry-author {
+        &:after {
+          content: "";
+          margin: 0 1rem;
+          font-family: "Vocabulary Icons", monospace;
+          font-size: 0.7rem;
+          color: $color-light-gray;
+        }
+      }
+      .entry-date {
+        padding: $space-normal 0;
+      }
+    }
+  }
+}
+.cc-commoners {
+  .card {
+    border-radius: 0;
+    &.entry-status {
+      .entry-status-content {
+        margin-top: $space-normal;
+        margin-bottom: $space-normal;
+        border-top: 2px solid $color-light-gray;
+        .status-date {
+          display: block;
+        }
+        .update-date {
+          padding: 0.5rem 0;
+          display: block;
+        }
+      }
+    }
+    &.entry-post {
+      &.link {
+        a {
+          border: 3px solid transparent;
+          .card-content {
+            display: flex;
+            flex-direction: column-reverse;
+            .card-title {
+              @extend .title;
+              @extend .is-5;
+            }
+            .content {
+              padding-top: 0;
+              font-size: 0.9rem;
+              font-weight: initial;
+            }
+          }
+          &.has-background-soft-tomato {
+            background-color: $color-soft-tomato;
+            color: $color-tomato;
+            .card-content {
+              .card-title {
+                color: $color-tomato;
+              }
+            }
+            &:hover {
+              border: 3px solid $color-tomato;
+            }
+          }
+          &.has-background-soft-blue {
+            background-color: $color-soft-blue;
+            color: $color-dark-slate-blue;
+            .card-content {
+              .card-title {
+                color: $color-dark-slate-blue;
+              }
+            }
+            &:hover {
+              border: 3px solid $color-dark-slate-blue;
+            }
+          }
+        }
+      }
     }
   }
 }

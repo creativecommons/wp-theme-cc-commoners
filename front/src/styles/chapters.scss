@@ -1,18 +1,20 @@
 header.chapter-list {
   display: flex;
+  position: relative;
   padding: 1rem 0 3rem 0;
   align-items: center;
+  flex-wrap: wrap;
   .search-chapter {
     .search-box {
       width: 16rem;
-      padding: .5rem;
+      padding: 0.5rem;
       margin-right: 1rem;
     }
   }
 }
 #chapters-table {
   width: 100% !important;
-  &.cards{
+  &.cards {
     thead {
       display: none;
     }
@@ -42,7 +44,7 @@ header.chapter-list {
           padding: 0;
           img {
             position: relative;
-            top: .4rem;
+            top: 0.4rem;
           }
         }
         &:nth-child(4) {
@@ -51,7 +53,7 @@ header.chapter-list {
           padding-top: 0;
           color: $black;
           &:before {
-            content: 'Lead by ';
+            content: "Lead by ";
           }
         }
         display: none;
@@ -89,17 +91,17 @@ header.chapter-list {
     min-width: 22rem;
     top: 0;
     background-color: $white;
-    box-shadow: 1px 1px 4px rgba($black,.3);
+    box-shadow: 1px 1px 4px rgba($black, 0.3);
     .chapter-title {
       margin-bottom: 0;
       font-weight: bold;
       @extend .title;
-      @extend .is-4
+      @extend .is-4;
     }
     .chapter-line {
       margin-top: 0;
-      margin-bottom: .2rem;
-      font-size: .9rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.9rem;
       color: $color-dark-gray;
       font-style: italic;
     }
@@ -114,16 +116,15 @@ header.chapter-list {
         }
       }
     }
-    
   }
 }
 #country-name {
   display: none;
   position: absolute;
-  padding: .5rem;
+  padding: 0.5rem;
   top: 0;
   background-color: $white;
-  box-shadow: 1px 1px 4px rgba($black,.3);
+  box-shadow: 1px 1px 4px rgba($black, 0.3);
 }
 .view-content {
   display: none;
@@ -142,10 +143,12 @@ header.chapter-list {
   top: 4rem;
   justify-content: flex-end;
   .chapter-buttons {
+    position: relative;
+    z-index: 90;
     .is-text {
       color: $color-tomato;
       font-family: $family-primary;
-      font-size: .9rem;
+      font-size: 0.9rem;
       text-transform: initial;
       &.active {
         color: $color-dark-gray;
@@ -156,13 +159,13 @@ header.chapter-list {
 .view-switch {
   margin-bottom: 2rem;
   .columns {
-    padding: .5rem 0;
+    padding: 0.5rem 0;
     margin-bottom: 3rem;
     .title {
       display: flex;
       align-items: center;
       text-transform: uppercase;
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
   }
   .map-header-content {
@@ -216,7 +219,7 @@ header.chapter-list {
     }
     .subtitle {
       display: block;
-      font-size: .9rem;
+      font-size: 0.9rem;
       font-weight: initial;
     }
     .button {
