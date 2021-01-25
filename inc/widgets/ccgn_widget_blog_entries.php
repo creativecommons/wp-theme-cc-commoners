@@ -16,7 +16,7 @@ class WP_CCGN_Widget_news_list extends WP_Widget_news {
 			echo '</header>';
 			echo '<div class="widget-content">';
 			foreach ( $news as $item ) {
-				echo CCGN_Components::simple_entry( $item->ID, false, true );
+				echo CCGN_Components::simple_entry( $item->ID, false, true, false );
 			}
 			if ( ! empty( $instance['is_link'] && ( ! empty( $instance['category'] ) ) ) ) {
 				$link = get_category_link( $instance['category'] );
