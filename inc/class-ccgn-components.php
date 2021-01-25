@@ -19,7 +19,11 @@ class CCGN_Components {
 		$has_thumb_class = ( ! empty( $has_thumb ) ) ? ' has-image' : '';
 		$external        = ( $use_remote_data ) ? ' target="_blank" ' : '';
 		$the_author      = ( ! $use_remote_data ) ? get_the_author( $post_id ) : $author;
-		$out             = '<article class="ccgn-post' . $has_thumb_class . '">';
+		$the_title       = ( ! $use_remote_data ) ? get_the_title( $post_id ) : $title;
+		$the_permalink   = ( ! $use_remote_data ) ? get_permalink( $post_id ) : $permalink;
+		$the_date        = ( ! $use_remote_data ) ? get_the_date( CC_Site::get_date_format() ) : mysql2date( CC_Site::get_date_format(), $date );
+
+		$out = '<article class="ccgn-post' . $has_thumb_class . '">';
 		if ( $has_thumb && $has_image ) {
 			$thumb_image = ( ! $use_remote_data ) ? get_the_post_thumbnail( $post_id, 'landscape-small' ) : '<img src="' . $image_url . '" alt="' . $title . '" />';
 			$out        .= '<figure class="entry-image">';
@@ -28,12 +32,9 @@ class CCGN_Components {
 			$out        .= '</a>';
 			$out        .= '</figure>';
 		}
-		$the_title     = ( ! $use_remote_data ) ? get_the_title( $post_id ) : $title;
-		$the_permalink = ( ! $use_remote_data ) ? get_permalink( $post_id ) : $permalink;
-		$the_date      = ( ! $use_remote_data ) ? get_the_date( CC_Site::get_date_format() ) : mysql2date( CC_Site::get_date_format(), $date );
-		$out          .= '<div class="entry-content">';
-		$out          .= '<h6 class="b-header"><a href="' . $the_permalink . '"' . $external . '>' . $the_title . '</a></h6>';
-		$out          .= '<div class="entry-meta">';
+		$out .= '<div class="entry-content">';
+		$out .= '<h6 class="b-header"><a href="' . $the_permalink . '"' . $external . '>' . $the_title . '</a></h6>';
+		$out .= '<div class="entry-meta">';
 		if ( ! empty( $the_author ) ) {
 			$out .= '<span class="entry-author">' . $the_author . '</span>';
 		}
