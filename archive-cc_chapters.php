@@ -82,6 +82,7 @@
 								<td>GNC Representative</td>
 								<td>Url</td>
 								<td>Website</td>
+								<td>Image</td>
 							</tr>
 						</thead>
 						<tbody>
