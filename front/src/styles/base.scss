@@ -1,7 +1,6 @@
 .has-tiled-background {
   @include tiled-background;
 }
-
 .move-up {
   position: relative;
   margin-top: -8rem;
@@ -53,6 +52,104 @@
     .user-menu {
       .control {
         max-width: 10rem;
+      }
+    }
+  }
+}
+.single {
+  .text-format {
+    .wp-block-cgb-block-vocabulary-card-border {
+      margin-left: 4rem;
+      margin-right: 4rem;
+      .border-card {
+        h3 {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        p {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+    .wp-block-cgb-block-vocabulary-card {
+      margin-left: 4rem;
+      margin-right: 4rem;
+      .simple-card {
+        h3 {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        p {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+.text-format {
+  .wp-block-cgb-block-vocabulary-card {
+    .simple-card {
+      display: block;
+      padding: $space-normal;
+      margin-top: $space-normal;
+      margin-bottom: $space-normal;
+      @include card-color-hover;
+      .subtitle {
+        font-size: 0.9rem;
+        font-weight: initial;
+        color: inherit;
+      }
+      h3 {
+        @extend .title;
+        @extend .is-5;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem;
+        color: inherit;
+      }
+      p {
+        margin: 0.5rem 0;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .wp-block-cgb-block-vocabulary-card-border {
+    .border-card {
+      display: block;
+      padding: $space-bigger $space-big;
+      margin-top: $space-normal;
+      margin-bottom: $space-normal;
+      border: 3px solid $color-light-gray;
+      @include color-combination-text;
+      h3 {
+        @extend .title;
+        @extend .b-header;
+        @extend .is-4;
+        color: inherit;
+      }
+      p {
+        color: $color-dark-slate-gray;
+      }
+      &:hover {
+        text-decoration: none;
+        border: 3px solid $color-dark-slate-gray;
+      }
+    }
+  }
+  .wp-block-cgb-block-vocabulary-card-stats {
+    .stats-card {
+      color: $color-black;
+      .number {
+        font-size: 3.8rem;
+        font-weight: 700;
+      }
+      .caption {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
       }
     }
   }

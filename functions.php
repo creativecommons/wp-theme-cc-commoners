@@ -138,6 +138,31 @@ class ccgn_site {
 		add_theme_support( 'post-formats', array( 'gallery', 'image', 'video' ) );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
+		add_theme_support(
+			'editor-color-palette',
+			array(
+				array(
+					'name'  => __( 'Tomato', 'openglam' ),
+					'slug'  => 'tomato',
+					'color' => '#c74200',
+				),
+				array(
+					'name'  => __( 'Dark slate blue', 'openglam' ),
+					'slug'  => 'dark-slate-blue',
+					'color' => '#1546a8',
+				),
+				array(
+					'name'  => __( 'Soft Tomato', 'openglam' ),
+					'slug'  => 'soft-tomato',
+					'color' => '#feede9',
+				),
+				array(
+					'name'  => __( 'Soft Blue', 'openglam' ),
+					'slug'  => 'soft-blue',
+					'color' => '#e3ebfd',
+				),
+			)
+		);
 	}
 	public function register_sidebars( $sidebars ) {
 		$sidebars['Homepage platforms'] = array(
