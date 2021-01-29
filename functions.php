@@ -210,7 +210,6 @@ class ccgn_site {
 	function enqueue_scripts() {
 		// front-end scripts
 		wp_enqueue_script( 'jquery', true );
-		wp_enqueue_script( 'dependencies', THEME_LOCAL_URI . '/assets/js/dependencies.js', array( 'jquery' ), self::theme_ver, true );
 		wp_enqueue_script( 'commoners_script', THEME_LOCAL_URI . '/assets/js/script.js', array( 'jquery' ), self::theme_ver, true );
 		// attach data to script.js
 		$ajax_data = array(
