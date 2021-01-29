@@ -187,13 +187,4 @@ jQuery(document).ready(function ($) {
       var obj = $(this);
       window.location.assign(obj.val());
     });
-  $(".navbar-burger").on("click", function (e) {
-    e.preventDefault();
-    var els = [
-      $(".main-header .navbar"),
-      $(".main-header .navbar-menu"),
-      $(".main-header .menu"),
-    ];
-    els.map((el) => $(el).toggleClass("is-active"));
-  });
 });
