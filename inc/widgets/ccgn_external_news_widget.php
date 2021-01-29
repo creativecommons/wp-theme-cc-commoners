@@ -20,7 +20,7 @@ class WP_Widget_ccgn_org_news extends WP_Widget_org_news {
 		if ( ! empty( $news ) ) {
 			echo '<div class="widget news ccgn-news">';
 			echo '<header class="widget-header">';
-			if ( $instance['show_title'] ) {
+			if ( ! empty( $instance['show_title'] ) ) {
 				echo '<h2 class="widget-title">' . esc_attr( $instance['title'] ) . '</h2>';
 			}
 			echo '</header>';
@@ -28,7 +28,7 @@ class WP_Widget_ccgn_org_news extends WP_Widget_org_news {
 			foreach ( $news as $item ) {
 				$thumb_url = ( ! empty( $item->featured_media ) ) ? $item->featured_media_url : '';
 
-				echo CCGN_Components::simple_entry( $item->ID, false, true, true, $item->title->rendered, $thumb_url, $item->date, $item->link, $item->excerpt->rendered, $item->author_data->name );
+				echo CCGN_Components::simple_entry( false, false, true, true, $item->title->rendered, $thumb_url, $item->date, $item->link, $item->excerpt->rendered );
 			}
 			if ( ! empty( $instance['is_link'] && ( ! empty( $instance['category'] ) ) ) ) {
 				$link = ! empty( $instance['category'] ) ? $categories[ $instance['category'] ] : self::CC_ORG_BLOG_URL;

@@ -10,7 +10,7 @@ class WP_CCGN_Widget_news_list extends WP_Widget_news {
 		if ( ! empty( $news ) ) {
 			echo '<div class="widget news">';
 			echo '<header class="widget-header">';
-			if ( $instance['show_title'] ) {
+			if ( ! empty( $instance['show_title'] ) ) {
 				echo '<h2 class="widget-title">' . esc_attr( $instance['title'] ) . '</h2>';
 			}
 			echo '</header>';

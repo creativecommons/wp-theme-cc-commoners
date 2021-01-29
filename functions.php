@@ -32,7 +32,6 @@ require get_stylesheet_directory() . '/inc/custom-post-type/queulat-ccgn-project
 require get_stylesheet_directory() . '/inc/custom-post-type/queulat-ccgn-faq-cpt-plugin/ccgn-faq-cpt-plugin.php';
 require get_stylesheet_directory() . '/inc/custom-post-type/queulat-ccgn-platforms-cpt-plugin/ccgn-platforms-cpt-plugin.php';
 require get_stylesheet_directory() . '/inc/custom-post-type/queulat-cc-chapters-cpt-plugin/cc-chapters-cpt-plugin.php';
-require get_stylesheet_directory() . '/inc/custom-post-type/queulat-ccgnfeature-cpt-plugin/ccgnfeature-cpt-plugin.php';
 
 /* AVATAR MAX CROP SIZING */
 define( 'BP_AVATAR_THUMB_WIDTH', 150 );
