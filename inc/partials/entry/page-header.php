@@ -8,7 +8,7 @@
 	<h1 class = 'title' > <?php echo Commoners::page_title(); ?></h1>
   </div>
 	<?php
-	if ( has_post_thumbnail( get_the_ID() ) ) {
+	if ( has_post_thumbnail( get_the_ID() ) && is_page() ) {
 		echo '<div class="entry-thumbnail">';
 		echo '<figure class="image">';
 		the_post_thumbnail( 'portrait-page' );

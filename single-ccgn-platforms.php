@@ -36,7 +36,7 @@
 	</div>
 	<div class="columns">
 	  <div class="column is-7">
-		<div class="content body-big">
+		<div class="content body-big text-format">
 			<?php the_content(); ?>
 		</div>
 	  </div>
