@@ -149,4 +149,20 @@ jQuery(document).ready(function ($) {
       var obj = $(this);
       window.location.assign(obj.val());
     });
+  if ($(".faq-list").length > 0) {
+    $(".faq-list .list-pages")
+      .find("a")
+      .on("click", function (e) {
+        e.preventDefault();
+        let element = $(this);
+        let target = element.attr("href");
+        let anchor = $(target).offset().top - 30;
+        $("html, body").stop().animate(
+          {
+            scrollTop: anchor,
+          },
+          800
+        );
+      });
+  }
 });
