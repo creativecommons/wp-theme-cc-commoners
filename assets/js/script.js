@@ -19,12 +19,6 @@ jQuery(document).ready(function ($) {
       },
     });
   };
-  $(document).foundation();
-  if ($(".widget.user-status").length) {
-    $("#user-status-panel").foundation("open");
-  }
-  $(".entry-gallery").slick({});
-
   $(".entry-display")
     .find(".entry-title")
     .on("click", function (e) {
@@ -148,39 +142,7 @@ jQuery(document).ready(function ($) {
     }
     lastScroll = st;
   });
-  $(".open-mobile-menu").on("click", function (e) {
-    e.preventDefault();
-    $(".menu-mobile-container").toggleClass("hide");
-    return false;
-  });
-  $(".open-mobile-search").on("click", function (e) {
-    e.preventDefault();
-    $(".search-mobile-container").toggleClass("open");
-    return false;
-  });
-  $(".menu-mobile-container")
-    .find(".close")
-    .on("click", function (e) {
-      e.preventDefault();
-      $(this).parent().addClass("hide");
-      return false;
-    });
-  $(".search-mobile-container")
-    .find(".close")
-    .on("click", function (e) {
-      e.preventDefault();
-      $(".search-mobile-container").removeClass("open");
-      return false;
-    });
-  $(".menu-mobile-container")
-    .find(".menu-item-has-children > a")
-    .on("click", function (e) {
-      e.preventDefault();
-      var obj = $(this);
-      obj.parent().toggleClass("opened");
-      obj.parent().find(".sub-menu").slideToggle("fast");
-      return false;
-    });
+
   $(".main-header")
     .find(".user-menu select")
     .on("change", function (e) {
