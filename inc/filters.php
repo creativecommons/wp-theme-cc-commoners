@@ -81,6 +81,7 @@ function ccgn_add_select_with_options( $items, $args ) {
 			if ( ccgn_current_user_is_membership_council() ) {
 				$items .= '<option value="' . admin_url( 'admin.php?page=global-network-application-approval' ) . '">' . __( 'Applications', 'cc-commoners' ) . '</option>';
 			}
+			$items         .= '<option value="' . wp_logout_url() . '">' . __( 'Log out', 'cc-commoners' ) . '</option>';
 					$items .= '</select>';
 				$items     .= '</div>';
 				$items     .= '<div class="icon is-small is-left">';
