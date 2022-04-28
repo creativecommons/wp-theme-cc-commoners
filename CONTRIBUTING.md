@@ -1,7 +1,7 @@
 # Contributing to CC WordPress development
 
-Thank you for your interest in contributing to CC WordPress Development! This document is
-a set of guidelines to help you contribute to this project.
+Thank you for your interest in contributing to CC WordPress Development! This
+document is a set of guidelines to help you contribute to this project.
 
 
 ## Code of Conduct
@@ -9,7 +9,7 @@ a set of guidelines to help you contribute to this project.
 By participating in this project, you are expected to uphold our [Code of
 Conduct][code_of_conduct].
 
-[code_of_conduct]:https://opensource.creativecommons.org/community/code-of-conduct/
+[code_of_conduct]: https://opensource.creativecommons.org/community/code-of-conduct/
 
 
 ## Project Documentation
@@ -19,10 +19,10 @@ Please consult the [`README`](README.md) for the complete project documentation.
 
 ## How to Contribute
 
-Make sure you have gone through our general [Contributing Code][contributing]
+Please follow the processes in our general [Contributing Code][contributing]
 guidelines on the Creative Common Open Source website.
 
-[contributing]:https://opensource.creativecommons.org/contributing-code/
+[contributing]: https://opensource.creativecommons.org/contributing-code/
 
 ### Prerequisites
 
@@ -168,6 +168,6 @@ Happy Coding!
 
 ## Questions or Thoughts?
 
-Talk to us on [our developer mailing list or Slack community][community].
+Talk to us on [one of our community forums][community].
 
-[community]:https://creativecommons.github.io/community/
+[community]: https://opensource.creativecommons.org/community/
