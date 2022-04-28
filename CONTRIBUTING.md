@@ -24,24 +24,27 @@ guidelines on the Creative Common Open Source website.
 
 [contributing]: https://opensource.creativecommons.org/contributing-code/
 
-### Prerequisites
+
+## Prerequisites
 
 The technologies below must be installed locally in your computer:
-* Web Server: Apache or Nginx
-* Database: [MySQL][mysql] version 5.0.15 or greater or any version of MariaDB.
-* [PHP][php]:  Version 7.3 or greater.
-* [WordPress][wordpress]: Version 5.4 or greater
+- Web Server: Apache or Nginx
+- Database: [MySQL][mysql] version 5.0.15 or greater or any version of MariaDB.
+- [PHP][php]:  Version 7.3 or greater.
+- [WordPress][wordpress]: Version 5.4 or greater
 
 [php]: https://www.php.net/manual/en/install.php
 [mysql]: https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/
 [wordpress]: https://wordpress.org/support/article/how-to-install-wordpress/
 
-### Development
+
+## Development
 
 Master branch is for the releases. Development will be done in the development
 branch.  Occasionally other branches may be available to test new features or
 play with new ideas, but they may be deleted anytime so don't rely on those
 branches. To start contributing code, checkout the `develop` branch.
+
 
 ### WordPress Coding Standards
 
@@ -84,7 +87,8 @@ If you are not setup to detect WPCS errors, consider the following steps.
    export PATH="$HOME/.composer/vendor/bin:$PATH"
    ```
 
-   If you are using a Linux distro e.g. Ubuntu add the path below to your `.bashrc ` file:
+   If you are using a Linux distro e.g. Ubuntu add the path below to your
+   `.bashrc ` file:
    ```shell
    export PATH="$HOME/.config/composer/vendor/bin:$PATH"
    ```
@@ -143,24 +147,30 @@ If you are not setup to detect WPCS errors, consider the following steps.
    fix, you are good to go.
 
 [wpcs-repo]: https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
-[phpcs]: https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs 
+[phpcs]: https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs
 
-**Running the ``wp-theme-commoners`` locally**
 
-* Fork [this][wp-theme-commoners] repository on GitHub.
-* Locally in your computer, open the `wordpress` directory in your text editor.
-* Then navigate to the themes directory by running the command below on your terminal:
-```shell
-cd wp-content/themes/wp-theme-commoners
-```
-* Then clone your fork of [this][wp-theme-commoners] repository in the current directory.
-* After successfully cloning the project, navigate to the `wp-theme-commoners` directory and run the command below on the terminal, to install all the necessary package dependencies:
-```shell
-composer install
-```
-One of the installed dependencies is `Queulat`,in-order to initialize Queulat in the project follow the instruction provided in this [link][quelat]. 
-* Then you can proceed to run your server and activate the `wp-theme-commoners` in your local WordPress environment.
-Happy Coding!
+### Running the `wp-theme-commoners` locally
+
+- Fork [this][wp-theme-commoners] repository on GitHub.
+- Locally in your computer, open the `wordpress` directory in your text editor.
+- Then navigate to the themes directory by running the command below on your
+  terminal:
+    ```shell
+    cd wp-content/themes/wp-theme-commoners
+    ```
+- Then clone your fork of [this][wp-theme-commoners] repository in the current
+  directory.
+- After successfully cloning the project, navigate to the `wp-theme-commoners`
+  directory and run the command below on the terminal, to install all the
+  necessary package dependencies:
+    ```shell
+    composer install
+    ```
+  One of the installed dependencies is `Queulat`,in-order to initialize Queulat
+  in the project follow the instruction provided in this [link][quelat].
+- Then you can proceed to run your server and activate the `wp-theme-commoners`
+  in your local WordPress environment. Happy Coding!
 
 [quelat]: https://github.com/felipelavinz/queulat#loading-queulat-as-mu-plugin
 [wp-theme-commoners]: https://github.com/creativecommons/wp-theme-commoners
